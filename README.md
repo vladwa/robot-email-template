@@ -40,3 +40,5 @@
 		- Message
 		- Execution time
 		- Duration
+
+![alt text](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)
