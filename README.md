@@ -7,13 +7,13 @@
 3. Change the ${Report html name} and ${Log html name} token to "report.html" and "log.html" in the jenkins "Publish Robot Framework test result" section as per the template. 
 
 # Email Template provides the below information.
-1. Build Details
-- Build URL
-- Project URL
-- Build Name
-- Date of Job
-- Job Duration
-- Submitted by 
+	1. Build Details
+		- Build URL
+		- Project URL
+		- Build Name
+		- Date of Job
+		- Job Duration
+		- Submitted by 
 		
 	2. Test Summary
 	
@@ -31,4 +31,12 @@
 		- Console output
 		
 	5. Test Trend(all tests)
-		- [Test Result Trend Image](https://github.com/vladwa/robot-email-template/blob/master/Test%20Result%20Trend.png)
+		- Test Result Trend Image(Refer: https://github.com/vladwa/robot-email-template/blob/master/Test%20Result%20Trend.png)
+		- Duration Trend Image(Refer: https://github.com/vladwa/robot-email-template/blob/master/Duration%20Trend.png)
+	
+	6. Test Execution Results
+		- Test Name
+		- Status
+		- Message
+		- Execution time
+		- Duration
