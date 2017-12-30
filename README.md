@@ -1,4 +1,4 @@
-# Jenkins-robot-email-ext-template(https://github.com/vladwa/robot-email-template/blob/master/Robot%20Framework%20icon.png)
+# Jenkins-robot-email-ext-template (https://github.com/vladwa/robot-email-template/blob/master/Robot%20Framework%20icon.png)
 
 ## Use in Jenkins ![alt text]
 
