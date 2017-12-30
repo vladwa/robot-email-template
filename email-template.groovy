@@ -31,7 +31,7 @@ TD.console { font-family:Courier New; }
   <TR><TD>Build Name:</TD><TD>${build.displayName}</TD></TR>
   <TR><TD>Date of job:</TD><TD>${it.timestampString}</TD></TR>
   <TR><TD>Job duration:</TD><TD>${build.durationString}</TD></TR>
- <TR><TD><b>Submitted by:</b></TD><TD><A href="vladwa@juniper.net">Vinayaka Ladwa</A></TD></TR>
+ <TR><TD><b>Submitted by:</b></TD><TD><A href="vinayakladwa@gmail.com">Vinayaka Ladwa</A></TD></TR>
 </TABLE>
 <BR/>
 </BODY>
