@@ -1,40 +1,65 @@
-
 <!-- Robot Framework Results -->
 <%
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 %>
 <STYLE>
-BODY, TABLE, TD, TH, P {
-  font-family:Verdana,Helvetica,sans serif;
-  font-size:11px;
-  color:black;
-}
-h1 { color:black; }
-h2 { color:black; }
-h3 { color:black; }
-TD.bg1 { color:white; background-color:#0000C0; font-size:120% }
-TD.bg2 { color:white; background-color:#4040FF; font-size:110% }
-TD.bg3 { color:white; background-color:#8080FF; }
-TD.test_passed { color:blue; }
-TD.test_failed { color:red; }
-TD.console { font-family:Courier New; }
+	BODY, TABLE, TD, TH, P {
+	  font-family:Verdana,Helvetica,sans serif;
+	  font-size:11px;
+	  color:black;
+	}
+	h1 { color:black; }
+	h2 { color:black; }
+	h3 { color:black; }
+	TD.bg1 { color:white; background-color:#0000C0; font-size:120% }
+	TD.bg2 { color:white; background-color:#4040FF; font-size:110% }
+	TD.bg3 { color:white; background-color:#8080FF; }
+	TD.test_passed { color:blue; }
+	TD.test_failed { color:red; }
+	TD.console { font-family:Courier New; }
 </STYLE>
 <BODY>
-<h4><b>****** Automation Results******</b></h4>
-<TABLE>
-  <TR>
-       <TD><IMG SRC="${rooturl}static/e59dfe28/images/32x32/<%= build.result.toString() == 'SUCCESS' ? "blue.gif" : build.result.toString() == 'FAILURE' ? 'red.gif' : 'yellow.gif' %>" />
-        <TD><b style="color:black; background-color:#8080ff;font-size: 150%;"><%= build.result == hudson.model.Result.SUCCESS ? "ALL TESTS PASSED" : "SOME TESTS FAILED OR THE JOB ENCOUNTERED A PROBLEM" %></b></TD></TR>
-  <TR><TD>Build URL:</TD><TD><A href="${rooturl}${build.url}">${rooturl}${build.url}</A></TD></TR>
-  <TR><TD>Project URL:</TD><TD><A href="${rooturl}${project.url}">${rooturl}${project.url}</A></TD></TR>
-  <TR><TD>Build Name:</TD><TD>${build.displayName}</TD></TR>
-  <TR><TD>Date of job:</TD><TD>${it.timestampString}</TD></TR>
-  <TR><TD>Job duration:</TD><TD>${build.durationString}</TD></TR>
- <TR><TD><b>Submitted by:</b></TD><TD><A href="vinayakladwa@gmail.com">Vinayaka Ladwa</A></TD></TR>
-</TABLE>
+	<h4>
+		<b>****** Automation Results******</b>
+	</h4>
+	<TABLE>
+		<TR>
+			<TD><IMG SRC="${rooturl}static/e59dfe28/images/32x32/<%= build.result.toString() == 'SUCCESS' ? "blue.gif" : build.result.toString() == 'FAILURE' ? 'red.gif' : 'yellow.gif' %>" />
+	        <TD><b style="color:black; background-color:#8080ff;font-size: 150%;"><%= build.result == hudson.model.Result.SUCCESS ? "ALL TESTS PASSED" : "SOME TESTS FAILED OR THE JOB ENCOUNTERED A PROBLEM" %></b></TD>
+		</TR>
+		<TR>
+			<TD>Build URL:</TD><TD><A href="${rooturl}${build.url}">${rooturl}${build.url}</A></TD>
+		</TR>
+		<TR>
+			<TD>Project URL:</TD><TD><A href="${rooturl}${project.url}">${rooturl}${project.url}</A></TD>
+		</TR>
+		<TR>
+			<TD>Build Name:</TD><TD>${build.displayName}</TD>
+		</TR>
+		<TR>
+			<TD>Date of job:</TD><TD>${it.timestampString}</TD>
+		</TR>
+		<TR>
+			<TD>Job duration:</TD><TD>${build.durationString}</TD>
+		</TR>
+		<TR>
+			<%
+				build.causes.each() { cause ->
+					if( cause instanceof hudson.model.Cause.UserIdCause ) {
+						%>
+						<TD><b>Submitted by:</b></TD><TD><A href="<%= cause.userId %>"><%= cause.userName %></A></TD>
+						<%
+					} else {
+						%>
+						<TD><%= cause.shortDescription %></TD>
+						<%
+					}
+				}
+			%>
+		</TR>
+	</TABLE>
 <BR/>
-</BODY>
 <%
 def robotResults = false
 def actions = build.actions // List<hudson.model.Action>
@@ -248,3 +273,4 @@ if (!robotResults) { %>
     <%
     }
     %>
+</BODY>
