@@ -39,8 +39,8 @@ TD.console { font-family:Courier New; }
 def robotResults = false
 def actions = build.actions // List<hudson.model.Action>
 actions.each() { action ->
-    if( action.class.simpleName.equals("RobotBuildAction") ) { //
-
+	if( action instanceof hudson.plugins.robot.RobotBuildAction ) { //
+	
     hudson.plugins.robot.RobotBuildAction
     robotResults = true %>
     <table>
