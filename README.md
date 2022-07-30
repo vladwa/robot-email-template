@@ -1,10 +1,18 @@
+
 # Jenkins-robot-email-ext-template ![alt text](https://github.com/vladwa/robot-email-template/blob/master/Robot%20Framework%20icon.png)
 
 ## Use in Jenkins
 
-1. Have your Jenkins administrator place the script inside $JENKINS_HOME/email-templates.
-2. Use the SCRIPT token with the template parameter equal to your script filename without the .groovy extension. For example, if the script filename is email-template.groovy, the email content would look like this ${SCRIPT,template="email-template"}.
-3. Change the ${Report html name} and ${Log html name} token to "report.html" and "log.html" in the jenkins "Publish Robot Framework test result" section as per the template. 
+There are two ways to use this in Jenkins.
+
+1. First way:
+    a. Have your Jenkins administrator place the script inside $JENKINS_HOME/email-templates.
+    b. Use the SCRIPT token with the template parameter equal to your script filename without the .groovy extension. For example, if the script filename is email-template.groovy, the email content would look like this ${SCRIPT,template="email-template"}.
+2. 
+	a. Using the [Config File Provider Plugin](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin), upload a groovy Extended Email Publisher Groovy Template
+    b. Use the SCRIPT token with the template parameter equal to your script filename without the .groovy extension and with managed: in front. For example, if the script filename is email-template.groovy, the email content would look like this ${SCRIPT,template="managed:email-template"}.
+   
+Either way, outputFileName, logFileName, reportFileName should all be the default of "output.xml", "report.html" and "log.html" in the jenkins "Publish Robot Framework test result" section or pipeline step. 
 
 Note: While copying template, use raw file, otherwise may contain escape string.
 
